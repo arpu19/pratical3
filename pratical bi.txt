@@ -1,0 +1,15 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+rainfall = [799, 1174.8, 865.1, 1334.6, 635.4, 918.5, 685.5, 998.6, 784.2, 985, 
+882.8, 1071]
+dates = pd.date_range(start='2023-01-01', periods=len(rainfall),freq='ME')
+rainfall_series = pd.Series(rainfall, index=dates)
+print(rainfall_series)
+plt.figure(figsize=(10,6))
+rainfall_series.plot()
+plt.title('Monthly Rainfall from Jan 2023')
+plt.xlabel('Month')
+plt.ylabel('Rainfall (mm)')
+plt.grid(True)
+plt.savefig('rainfall_2023.png')
+plt.show()
